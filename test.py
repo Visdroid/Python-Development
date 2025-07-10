@@ -14,3 +14,6 @@ response = client.chat.completions.create(
 )
 
 print("AI:", response.choices[0].message.content)
+
+#tHIS IS AN ai model which uses GPT-4.1 is June 2024 AI MODEL.
+#This AI model is trained to receive a prompt and reply with a response
