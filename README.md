@@ -1,7 +1,14 @@
 <h1 align="center">Hi 👋, I'm Aldrin Visser</h1>
 <h3 align="center">A passionate Web and App developer who loves to learn.</h3>
 
-- 🔭 I’m currently working on **an AI Project which uses OpenAI API to create an AI Law assistant which takes prompts from users. If a user ask a question such as: " Can Law enforcement hack suspects and obtain key information?" The Law assistant will then read and extracts information from certain Law and constitutional books and gives a response to the user.More books,informatyion and resources can be added later, the current Law sections information is obtained from are: 1.Constitutional Law 2.Criminal Law and Procedure 3.Investigation and Intelligence 4.Cyber and Digital Laws 5.Financial and Fraud Laws 6.Social Media and Internet Laws 7. Military and Defense **
+- 🔭 I’m currently working on **an AI Project which uses OpenAI API to create an AI Law assistant which takes prompts from users. If a user ask a question such as: " Can Law enforcement hack suspects and obtain key information?" The Law assistant will then read and extract information from certain Law and constitutional books and give a response to the user.More books,information and resources can be added later, the current Law sections information is obtained from are:
+- 1.Constitutional Law
+- 2.Criminal Law and Procedure
+- 3.Investigation and Intelligence
+- 4.Cyber and Digital Laws
+- 5.Financial and Fraud Laws
+- 6.Social Media and Internet Laws
+- 7.Military and Defense **
 
 - 🌱 I’m currently learning **Python**
 
