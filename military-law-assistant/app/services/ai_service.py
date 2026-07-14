@@ -4,10 +4,61 @@ import logging
 import re
 from openai import OpenAI, APIError, APIConnectionError, RateLimitError
 from app.military_law_assistant_config import Config
-from typing import Optional, List
+from typing import Optional, List, Dict
 
 config = Config()
 logger = logging.getLogger(__name__)
+
+LANGUAGE_CONFIG: Dict[str, Dict[str, object]] = {
+    'en': {
+        'name': 'English',
+        'markers': ['the', 'what', 'when', 'where', 'law', 'legal', 'right', 'arrest', 'question']
+    },
+    'af': {
+        'name': 'Afrikaans',
+        'markers': ['die', 'wat', 'wanneer', 'reg', 'vraag', 'polisie', 'kan', 'word', 'hierdie']
+    },
+    'zu': {
+        'name': 'isiZulu',
+        'markers': ['ngabe', 'umthetho', 'icala', 'iphoyisa', 'yini', 'kanjani', 'ukuze', 'kwesigaba']
+    },
+    'xh': {
+        'name': 'isiXhosa',
+        'markers': ['ngaba', 'umthetho', 'ityala', 'ipolisa', 'yintoni', 'njani', 'kwesigaba', 'kunye']
+    },
+    'st': {
+        'name': 'Sesotho',
+        'markers': ['molao', 'potso', 'na', 'joang', 'tokelo', 'mapolesa', 'kapa', 'tse']
+    },
+    'tn': {
+        'name': 'Setswana',
+        'markers': ['molao', 'potso', 'eng', 'jang', 'ditshwanelo', 'mapodise', 'kgotsa', 'tla']
+    },
+    'nso': {
+        'name': 'Sepedi',
+        'markers': ['molao', 'potšišo', 'potsiso', 'eng', 'bjang', 'tokelo', 'maphodisa', 'goba']
+    },
+    'ts': {
+        'name': 'Xitsonga',
+        'markers': ['na', 'nawu', 'xinawu', 'milawu', 'maphorisa', 'njhani', 'xivutiso', 'mfanelo']
+    },
+    've': {
+        'name': 'Tshivenda',
+        'markers': ['mulayo', 'mbudziso', 'mapholisa', 'mini', 'hani', 'pfanelo', 'na', 'zwine']
+    },
+    'nr': {
+        'name': 'isiNdebele',
+        'markers': ['umthetho', 'umbuzo', 'ipholisa', 'ngabe', 'yini', 'njani', 'ilungelo', 'lokhu']
+    },
+    'ss': {
+        'name': 'siSwati',
+        'markers': ['umtsetfo', 'umbuto', 'liphoyisa', 'yini', 'kanjani', 'lilungelo', 'ngabe', 'kutsi']
+    }
+}
+
+SUPPORTED_LANGUAGE_NAMES = ", ".join(
+    language['name'] for language in LANGUAGE_CONFIG.values()
+)
 
 class AIService:
     def __init__(self):
@@ -25,21 +76,56 @@ class AIService:
             'officer', 'commanding', 'rank', 'court martial', 'disciplinary'
         ]
 
-    def ask_question(self, question: str, context: str) -> str:
+    def detect_language(self, question: str) -> Dict[str, str]:
+        question_lower = question.lower()
+        language_scores: Dict[str, int] = {}
+
+        for code, language in LANGUAGE_CONFIG.items():
+            markers = language.get('markers', [])
+            score = sum(1 for marker in markers if marker in question_lower)
+            if score > 0:
+                language_scores[code] = score
+
+        if not language_scores:
+            return {'code': 'en', 'name': 'English'}
+
+        best_code = max(language_scores, key=language_scores.get)
+        best_score = language_scores[best_code]
+        tied_codes = [
+            code for code, score in language_scores.items()
+            if score == best_score
+        ]
+
+        if len(tied_codes) > 1:
+            preferred_official_languages = ['af', 'zu', 'xh', 'st', 'tn', 'nso', 'ts', 've', 'nr', 'ss']
+            for code in preferred_official_languages:
+                if code in tied_codes:
+                    best_code = code
+                    break
+            else:
+                best_code = 'en'
+
+        return {
+            'code': best_code,
+            'name': str(LANGUAGE_CONFIG[best_code]['name'])
+        }
+
+    def ask_question(self, question: str, context: str, language_code: Optional[str] = None) -> str:
         """Handle questions with military law focus and robust error handling"""
+        language = self._resolve_language(language_code, question)
         if not self.client:
             logger.warning("No OpenAI API key configured - using fallback response")
-            return self._fallback_response(question)
+            return self._fallback_response(question, language)
         
         try:
             if not context or "No PDF documents available" in context:
                 logger.warning("No context available - using fallback response")
-                return self._fallback_response(question)
+                return self._fallback_response(question, language)
 
             if self._is_military_officer_question(question):
-                return self._handle_officer_question(question, context)
+                return self._handle_officer_question(question, context, language)
 
-            prompt = self._build_prompt(question, context)
+            prompt = self._build_prompt(question, context, language)
             
             try:
                 response = self.client.chat.completions.create(
@@ -53,18 +139,26 @@ class AIService:
                     timeout=30
                 )
                 answer = response.choices[0].message.content
-                return self._enhance_answer(answer, question)
+                return self._enhance_answer(answer, question, language)
                 
             except TimeoutError:
                 logger.error("OpenAI API timeout")
-                return self._timeout_response(question)
+                return self._timeout_response(question, language)
             except (APIError, APIConnectionError, RateLimitError) as e:
                 logger.error(f"OpenAI API error: {str(e)}")
-                return self._api_error_response(question)
+                return self._api_error_response(question, language)
                 
         except Exception as e:
             logger.error(f"Unexpected error: {str(e)}")
-            return self._fallback_response(question)
+            return self._fallback_response(question, language)
+
+    def _resolve_language(self, language_code: Optional[str], question: str) -> Dict[str, str]:
+        if language_code and language_code in LANGUAGE_CONFIG:
+            return {
+                'code': language_code,
+                'name': str(LANGUAGE_CONFIG[language_code]['name'])
+            }
+        return self.detect_language(question)
 
     def _is_military_officer_question(self, question: str) -> bool:
         """Check if question relates to military officers"""
@@ -73,28 +167,28 @@ class AIService:
         has_officer_terms = ('officer' in question_lower or 'commanding' in question_lower)
         return has_military_keywords and has_officer_terms
 
-    def _handle_officer_question(self, question: str, context: str) -> str:
+    def _handle_officer_question(self, question: str, context: str, language: Dict[str, str]) -> str:
         """Special handling for military officer-related questions"""
         if not self.client:
-            return self._fallback_response(question)
+            return self._fallback_response(question, language)
         
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
                     {"role": "system", "content": self.system_prompt},
-                    {"role": "user", "content": self._build_officer_prompt(question, context)}
+                    {"role": "user", "content": self._build_officer_prompt(question, context, language)}
                 ],
                 max_tokens=self.max_tokens,
                 temperature=0.3,
                 timeout=20
             )
             base_answer = response.choices[0].message.content
-            return self._enhance_officer_answer(base_answer, question)
+            return self._enhance_officer_answer(base_answer, question, language)
         except Exception:
-            return self._fallback_response(question)
+            return self._fallback_response(question, language)
 
-    def _build_prompt(self, question: str, context: str) -> str:
+    def _build_prompt(self, question: str, context: str, language: Dict[str, str]) -> str:
         """Construct prompt for general legal questions"""
         return f"""Legal Context:
 {context}
@@ -106,9 +200,12 @@ Answer Requirements:
 2. Cite exact sections from relevant Acts
 3. For military questions, reference Defence Act and Military Discipline Act
 4. Include recent precedents if available
-5. Provide step-by-step procedures where applicable"""
+5. Provide step-by-step procedures where applicable
+6. Detect the language used by the user and answer fully in that same language
+7. Supported language preference includes these South African official languages: {SUPPORTED_LANGUAGE_NAMES}
+8. Keep Act names and section numbers legally precise even if the rest of the answer is translated"""
 
-    def _build_officer_prompt(self, question: str, context: str) -> str:
+    def _build_officer_prompt(self, question: str, context: str, language: Dict[str, str]) -> str:
         """Construct specialized prompt for officer questions"""
         return f"""Military Officer Question:
 {question}
@@ -124,18 +221,22 @@ Required Answer Format:
    - Criminal Procedure Act
 3. Include 2023-2025 precedents
 4. Step-by-step procedures
-5. Special considerations for senior officers"""
+5. Special considerations for senior officers
+6. Answer entirely in {language['name']} because that is the user's language
+7. Keep legal citations, section numbers, and Act names precise"""
 
-    def _enhance_answer(self, answer: str, question: str) -> str:
+    def _enhance_answer(self, answer: str, question: str, language: Dict[str, str]) -> str:
         """Improve answer formatting"""
         if self._is_military_officer_question(question):
-            answer = self._enhance_officer_answer(answer, question)
+            answer = self._enhance_officer_answer(answer, question, language)
         return answer.replace("Section", "\nSection").strip()
 
-    def _enhance_officer_answer(self, answer: str, question: str) -> str:
+    def _enhance_officer_answer(self, answer: str, question: str, language: Dict[str, str]) -> str:
         """Add military-specific information to answer"""
         enhancements = []
-        if 'arrest' in question.lower():
+        question_lower = question.lower()
+        arrest_terms = ['arrest', 'arresteer', 'ukubopha', 'ukubanjwa', 'go swara', 'bopha']
+        if any(term in question_lower for term in arrest_terms):
             enhancements.append(
                 "\n\nArrest Procedures:\n"
                 "- Defence Act Section 104 (Military police powers)\n"
@@ -149,23 +250,94 @@ Required Answer Format:
         )
         return answer + ''.join(enhancements)
 
-    def _fallback_response(self, question: str) -> str:
+    def _fallback_response(self, question: str, language: Dict[str, str]) -> str:
         """Provide fallback when system is unavailable"""
         if self._is_military_officer_question(question):
             return (
-                "Military Officer Procedures:\n\n"
-                "1. All officers subject to standard arrest procedures\n"
-                "2. Reference:\n"
+                f"{self._localize('military_officer_procedures', language)}\n\n"
+                f"1. {self._localize('all_officers_subject', language)}\n"
+                f"2. {self._localize('reference_label', language)}\n"
                 "   - Defence Act Sections 20-29\n"
                 "   - Criminal Procedure Act Section 40\n\n"
-                "Recent example: 2025 arrests of senior officers"
+                f"{self._localize('recent_example', language)}"
             )
-        return "System temporarily unavailable. Please try again later."
+        return self._localize('system_unavailable', language)
 
-    def _timeout_response(self, question: str) -> str:
+    def _timeout_response(self, question: str, language: Dict[str, str]) -> str:
         """Handle timeout cases"""
-        return self._fallback_response(question)
+        return self._fallback_response(question, language)
 
-    def _api_error_response(self, question: str) -> str:
+    def _api_error_response(self, question: str, language: Dict[str, str]) -> str:
         """Handle API errors"""
-        return self._fallback_response(question)
+        return self._fallback_response(question, language)
+
+    def _localize(self, message_key: str, language: Dict[str, str]) -> str:
+        code = language['code']
+        translations = {
+            'system_unavailable': {
+                'en': 'System temporarily unavailable. Please try again later.',
+                'af': 'Die stelsel is tydelik onbeskikbaar. Probeer asseblief later weer.',
+                'zu': 'Uhlelo alutholakali okwamanje. Sicela uzame futhi ngokuhamba kwesikhathi.',
+                'xh': 'Inkqubo ayifumaneki okwethutyana. Nceda uzame kwakhona kamva.',
+                'st': 'Sisteme ha e fumanehe ka nakwana. Ka kopo leka hape hamorao.',
+                'tn': 'Sisteme ga e bonagale ka nakwana. Tsweetswee leka gape moragonyana.',
+                'nso': 'Sisteme ga e hwetšagale ga bjale. Hle leka gape ka morago.',
+                'ts': 'Sisiteme a yi kumeki swa xinkarhana. Hi kombela u tlhela u ringeta endzhaku.',
+                've': 'Sisiteme a i wanali zwino. Ri humbela uri ni dovhe ni lingedze nga murahu.',
+                'nr': 'Ihlelo alifumaneki okwesikhatjhana. Sibawa uzame godu ngemva kwesikhathi.',
+                'ss': 'Luhlelo alutfolakali okwamanje. Uyacelwa kutsi uphindze utame emuva kwesikhashana.'
+            },
+            'military_officer_procedures': {
+                'en': 'Military Officer Procedures:',
+                'af': 'Prosedures vir Militêre Offisiere:',
+                'zu': 'Izinqubo Zesikhulu Sezempi:',
+                'xh': 'Iinkqubo Zegosa Lomkhosi:',
+                'st': 'Mekgwa ya Molaodi wa Sesole:',
+                'tn': 'Mekgwa ya Moofisiri wa Sesole:',
+                'nso': 'Mekgwa ya Mošomi wa Sesole:',
+                'ts': 'Maendlelo ya Nandza wa Vusirheleri:',
+                've': 'Mitele ya Muhasho wa Mmbi:',
+                'nr': 'Iindlela Zephoyisa Lezempi:',
+                'ss': 'Tinqubo Tephoyisa Letempi:'
+            },
+            'all_officers_subject': {
+                'en': 'All officers remain subject to standard arrest procedures.',
+                'af': 'Alle offisiere bly onderhewig aan gewone arrestasieprosedures.',
+                'zu': 'Wonke amasosha aphezulu asabophezeleke ezinqubweni ezijwayelekile zokubopha.',
+                'xh': 'Onke amagosa asahleli ephantsi kweenkqubo eziqhelekileyo zokubanjwa.',
+                'st': 'Bohle balaodi ba ntse ba tlamehile mekgoeng e tlwaelehileng ya tshwaro.',
+                'tn': 'Batlankedi botlhe ba santse ba laolwa ke ditsamaiso tse di tlwaelegileng tsa go tshwara.',
+                'nso': 'Bahlankedi bohle ba sa le ka fase ga mekgwa ya tlwaelo ya go swara.',
+                'ts': 'Vatirhela hinkwavo va ha landzelela maendlelo ya ntolovelo ya ku khoma.',
+                've': 'Vhahasho vhoṱhe vha kha ḓi tevhela maitele a u fara o ḓoweleaho.',
+                'nr': 'Boke abaphathi basesengaphasi kweendlela ezijayelekileko zokubopha.',
+                'ss': 'Tindvuna tonkhe tisahleli ngaphasi kwetinqubo letijwayelekile tekubopha.'
+            },
+            'reference_label': {
+                'en': 'Reference:',
+                'af': 'Verwysing:',
+                'zu': 'Izinkomba:',
+                'xh': 'Isalathiso:',
+                'st': 'Tshupiso:',
+                'tn': 'Tshupetso:',
+                'nso': 'Tšhupetšo:',
+                'ts': 'Nkombekelo:',
+                've': 'Tsumbanḓila:',
+                'nr': 'Isiboniso:',
+                'ss': 'Sikhombiso:'
+            },
+            'recent_example': {
+                'en': 'Recent example: 2025 arrests of senior officers',
+                'af': 'Onlangse voorbeeld: 2025-arrestasies van senior offisiere',
+                'zu': 'Isibonelo sakamuva: ukuboshwa kwezikhulu eziphezulu ngo-2025',
+                'xh': 'Umzekelo wakutshanje: ukubanjwa kwamagosa aphezulu ngo-2025',
+                'st': 'Mohlala wa moraorao: ho tshwarwa ha balaodi ba baholo ka 2025',
+                'tn': 'Sekao sa bosheng: go tshwarwa ga batlankedi ba bagolo ka 2025',
+                'nso': 'Mohlala wa bjale: go swarwa ga bahlankedi ba bagolo ka 2025',
+                'ts': 'Xikombiso xa sweswinyana: ku khomiwa ka vatirhela lavakulu hi 2025',
+                've': 'Tsumbo ya zwenezwino: u farwa ha vhahasho vhahulwane nga 2025',
+                'nr': 'Isibonelo sanamhlanjesi: ukubotjhwa kwabaphathi abakhulu ngo-2025',
+                'ss': 'Sibonelo sakamuva: kuboshwa kwetikhulu letiphezulu nga-2025'
+            }
+        }
+        return translations.get(message_key, {}).get(code, translations.get(message_key, {}).get('en', ''))
