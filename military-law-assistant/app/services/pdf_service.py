@@ -142,9 +142,14 @@ class PDFService:
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
         }
         
-        for attempt in range(3):  # Increased to 3 attempts
+        for attempt in range(3):
             try:
-                with requests.get(resource["url"], headers=headers, stream=True, timeout=30) as r:  # Increased timeout
+                with requests.get(resource["url"], headers=headers, stream=True, timeout=30) as r:
+                    # Don't retry on permanent client errors (4xx)
+                    if 400 <= r.status_code < 500:
+                        logger.warning(f"Skipping {resource['name']}: HTTP {r.status_code} (permanent error)")
+                        return False
+
                     r.raise_for_status()
                     
                     # More robust content type checking
@@ -158,7 +163,7 @@ class PDFService:
                                 f.write(chunk)
                     
                     # More thorough file validation
-                    if not file_path.exists() or file_path.stat().st_size < 2048:  # Increased minimum size
+                    if not file_path.exists() or file_path.stat().st_size < 2048:
                         raise ValueError("Downloaded file is too small or corrupted")
                     
                     # Verify PDF magic number
@@ -168,11 +173,15 @@ class PDFService:
                     
                     return True
                     
+            except requests.exceptions.HTTPError:
+                # Already handled above for 4xx; re-raise to exit loop
+                return False
             except Exception as e:
                 logger.warning(f"Attempt {attempt+1} failed for {resource['name']}: {str(e)}")
                 if file_path.exists():
                     file_path.unlink()
-                time.sleep(2 ** attempt)  # Exponential backoff
+                if attempt < 2:
+                    time.sleep(2 ** attempt)  # Exponential backoff only between retries
                 
         logger.error(f"Failed to download {resource['name']} after 3 attempts")
         return False

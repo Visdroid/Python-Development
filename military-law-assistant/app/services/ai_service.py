@@ -11,7 +11,11 @@ logger = logging.getLogger(__name__)
 
 class AIService:
     def __init__(self):
-        self.client = OpenAI(api_key=config.OPENAI_API_KEY)
+        api_key = config.OPENAI_API_KEY
+        if api_key:
+            self.client = OpenAI(api_key=api_key)
+        else:
+            self.client = None
         self.model = config.AI_MODEL
         self.max_tokens = config.MAX_TOKENS
         self.temperature = config.TEMPERATURE
@@ -23,6 +27,10 @@ class AIService:
 
     def ask_question(self, question: str, context: str) -> str:
         """Handle questions with military law focus and robust error handling"""
+        if not self.client:
+            logger.warning("No OpenAI API key configured - using fallback response")
+            return self._fallback_response(question)
+        
         try:
             if not context or "No PDF documents available" in context:
                 logger.warning("No context available - using fallback response")
@@ -67,6 +75,9 @@ class AIService:
 
     def _handle_officer_question(self, question: str, context: str) -> str:
         """Special handling for military officer-related questions"""
+        if not self.client:
+            return self._fallback_response(question)
+        
         try:
             response = self.client.chat.completions.create(
                 model=self.model,

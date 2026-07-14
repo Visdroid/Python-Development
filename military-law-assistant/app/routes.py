@@ -12,6 +12,10 @@ logger = logging.getLogger(__name__)
 def init_routes(app):
     @app.route('/')
     def home():
+        return render_template('home.html')
+
+    @app.route('/law')
+    def law():
         return render_template('index.html')
     
     @app.route('/ask', methods=['POST'])

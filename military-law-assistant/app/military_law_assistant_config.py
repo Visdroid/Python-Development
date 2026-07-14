@@ -20,8 +20,8 @@ class Config:
     @property
     def OPENAI_API_KEY(self):
         key = os.getenv('OPENAI_API_KEY')
-        if not key or len(key) < 30:  # Basic validation
-            raise ValueError("Invalid OpenAI API key configuration")
+        if not key or len(key) < 30 or key == 'your_actual_key_here':
+            return None  # Return None instead of raising error
         return key
     
     @property
