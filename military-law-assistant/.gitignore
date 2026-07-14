@@ -1,0 +1,47 @@
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# IDE & editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+*.egg
+dist/
+build/
+.pytest_cache/
+.coverage
+
+# Flask
+instance/
+.webassets-cache
+
+# Logs & temp files
+*.log
+app.log
+temp/
+uploads/*
+documents/*
+!documents/.gitkeep
+
+# OS
+Thumbs.db
+.DS_Store
