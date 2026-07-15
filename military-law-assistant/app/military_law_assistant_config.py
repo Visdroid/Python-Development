@@ -42,6 +42,18 @@ class Config:
             return max(0.1, min(1.0, temp))  # Clamp between 0.1 and 1.0
         except ValueError:
             return 0.5
+
+    @property
+    def TTS_MODEL(self):
+        return os.getenv('TTS_MODEL', 'gpt-4o-mini-tts')
+
+    @property
+    def TTS_VOICE(self):
+        return os.getenv('TTS_VOICE', 'marin')
+
+    @property
+    def TTS_RESPONSE_FORMAT(self):
+        return os.getenv('TTS_RESPONSE_FORMAT', 'mp3')
     
     @property
     def SYSTEM_PROMPT(self):

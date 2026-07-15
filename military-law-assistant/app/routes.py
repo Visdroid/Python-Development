@@ -1,4 +1,5 @@
-from flask import render_template, jsonify, request, current_app
+from flask import render_template, jsonify, request, current_app, send_from_directory, abort, url_for, send_file
+from io import BytesIO
 from pathlib import Path
 import tempfile
 import os
@@ -27,6 +28,8 @@ CATEGORY_CONFIG: Dict[str, Dict[str, object]] = {
             'South African Constitutional Court',
             'South African Parliament',
             'South African constitution'
+             'Criminal arrest'
+            'Criminal handcuffed'
         ]
     },
     'criminal': {
@@ -41,7 +44,9 @@ CATEGORY_CONFIG: Dict[str, Dict[str, object]] = {
         'image_queries': [
             'South African courtroom',
             'South African police service',
-            'criminal procedure court'
+            'criminal procedure court',
+            'Criminal arrest',
+            'Suspect handcuffed'
         ]
     },
     'military': {
@@ -53,7 +58,8 @@ CATEGORY_CONFIG: Dict[str, Dict[str, object]] = {
             'military', 'defence', 'defense', 'army', 'soldier', 'navy',
             'air force', 'sandt', 'sandf', 'officer', 'uniform',
             'commanding', 'barracks', 'court martial', 'disciplinary',
-            'armoured', 'armored'
+            'armoured', 'armored', 'mpi', 'military police instruction',
+            'military police', 'SAMHS', 'SANDF', 'military police', 'defence act', 'military discipline act'
         ],
         'image_queries': [
             'South African Army armoured vehicle',
@@ -155,7 +161,89 @@ def init_routes(app):
 
     @app.route('/law')
     def law():
-        return render_template('index.html')
+        return render_template(
+            'index.html',
+            resources=build_resource_catalog(),
+            case_sources=current_app.case_archive_service.get_sources(),
+            operational_resources=build_operational_resources(),
+            premium_tts_voices=current_app.ai_service.get_tts_voice_options(),
+            default_tts_voice=current_app.ai_service.tts_voice
+        )
+
+    @app.route('/documents/<path:file_name>')
+    def document_file(file_name):
+        safe_name = secure_filename(Path(file_name).name)
+        if safe_name != Path(file_name).name or not safe_name.lower().endswith('.pdf'):
+            abort(404)
+
+        document_path = current_app.pdf_service.documents_dir / safe_name
+        if not document_path.exists() or not document_path.is_file():
+            abort(404)
+
+        return send_from_directory(
+            str(current_app.pdf_service.documents_dir),
+            safe_name,
+            mimetype='application/pdf',
+            as_attachment=False
+        )
+
+    @app.route('/document-viewer/<path:file_name>')
+    def document_viewer(file_name):
+        safe_name = secure_filename(Path(file_name).name)
+        if safe_name != Path(file_name).name or not safe_name.lower().endswith('.pdf'):
+            abort(404)
+
+        document_path = current_app.pdf_service.documents_dir / safe_name
+        if not document_path.exists() or not document_path.is_file():
+            abort(404)
+
+        return render_template(
+            'pdf_viewer.html',
+            pdf_url=build_document_file_url(safe_name),
+            title=safe_name.replace('_', ' ').replace('.pdf', '').title()
+        )
+
+    @app.route('/speak', methods=['POST'])
+    def speak():
+        payload = request.get_json(silent=True) or {}
+        text = str(payload.get('text', '')).strip()
+        language_code = payload.get('language_code')
+        voice = payload.get('voice')
+
+        if not text:
+            return jsonify({'error': 'No text provided for speech generation.'}), 400
+
+        try:
+            audio_bytes = current_app.ai_service.synthesize_speech(text, language_code, voice)
+            return send_file(
+                BytesIO(audio_bytes),
+                mimetype='audio/mpeg',
+                as_attachment=False,
+                download_name='legal-answer.mp3'
+            )
+        except ValueError as exc:
+            return jsonify({'error': str(exc)}), 400
+        except RuntimeError as exc:
+            return jsonify({'error': str(exc)}), 503
+
+    @app.route('/cases/search', methods=['GET'])
+    def case_search():
+        query = request.args.get('q', '').strip()
+        source_id = request.args.get('source')
+
+        if not query:
+            return jsonify({
+                'query': '',
+                'results': [],
+                'sources': current_app.case_archive_service.get_sources(),
+                'message': 'Please enter a search query.'
+            }), 200
+
+        payload = current_app.case_archive_service.search_public_cases(query, source_id)
+        payload['message'] = (
+            "Results are federated links into public archives (current and historical coverage varies by source)."
+        )
+        return jsonify(payload)
     
     @app.route('/ask', methods=['POST'])
     def ask():
@@ -186,6 +274,7 @@ def init_routes(app):
                 'question': question,
                 'answer': answer,
                 'references': references,
+                'reference_links': build_reference_payload(references, categories),
                 'categories': categories or [],
                 'language': language,
                 'visuals': build_visual_payload(question, answer, categories, references, selected_category)
@@ -198,6 +287,7 @@ def init_routes(app):
                 'error': 'Processing failed',
                 'answer': fallback_answer,
                 'references': references,
+                'reference_links': build_reference_payload(references, categories),
                 'categories': categories or [],
                 'language': language,
                 'visuals': build_visual_payload(question, fallback_answer, categories, references, selected_category)
@@ -224,6 +314,7 @@ def init_routes(app):
                     'question': question,
                     'answer': answer,
                     'references': references,
+                    'reference_links': build_reference_payload(references, categories),
                     'categories': categories or [],
                     'language': language,
                     'visuals': build_visual_payload(question, answer, categories, references, selected_category)
@@ -293,6 +384,120 @@ def init_routes(app):
         year_mentions = re.findall(r"\b(?:19|20)\d{2}\b", answer)
         case_markers = re.findall(r"\bcase\b|\bprecedent\b|\bv\.\b|\bv\b", answer, flags=re.IGNORECASE)
         return len(set(year_mentions)) + len(case_markers)
+
+    def build_document_file_url(file_name: str) -> str:
+        return url_for('document_file', file_name=file_name)
+
+    def build_document_url(file_name: str) -> str:
+        return url_for('document_viewer', file_name=file_name)
+
+    def build_resource_catalog() -> List[Dict[str, object]]:
+        available_resources = current_app.pdf_service.get_available_resources()
+        grouped_resources: Dict[str, Dict[str, object]] = {}
+
+        for resource in available_resources:
+            category = resource['category']
+            category_meta = CATEGORY_CONFIG.get(category, {
+                'label': category.title(),
+                'color': '#1976d2',
+                'icon': 'bi-file-earmark-pdf'
+            })
+            file_name = Path(resource['path']).name
+            document_url = build_document_url(file_name) if resource['status'] == 'Available' else None
+            raw_document_url = build_document_file_url(file_name) if resource['status'] == 'Available' else None
+
+            grouped_resources.setdefault(category, {
+                'key': category,
+                'label': category_meta['label'],
+                'color': category_meta['color'],
+                'icon': category_meta['icon'],
+                'resources': []
+            })
+            grouped_resources[category]['resources'].append({
+                'name': resource['name'],
+                'category': category,
+                'category_label': category_meta['label'],
+                'status': resource['status'],
+                'size': resource['size'],
+                'file_name': file_name,
+                'document_url': document_url,
+                'raw_document_url': raw_document_url,
+                'source_url': resource['url']
+            })
+
+        ordered_categories = [
+            category for category in CATEGORY_CONFIG.keys()
+            if category in grouped_resources
+        ]
+        ordered_categories.extend(
+            category for category in grouped_resources.keys()
+            if category not in ordered_categories
+        )
+
+        return [grouped_resources[category] for category in ordered_categories]
+
+    def build_operational_resources() -> List[Dict[str, str]]:
+        return [
+            {
+                'title': 'Military Police Instructions (MPI) public document search',
+                'category': 'military',
+                'description': 'Public government-document search for military police instructions and related directives.',
+                'url': 'https://www.gov.za/documents?search_query=military+police+instruction'
+            },
+            {
+                'title': 'SAPS National Instructions public document search',
+                'category': 'police',
+                'description': 'Public search for SAPS instructions, notices, and published policy references.',
+                'url': 'https://www.gov.za/documents?search_query=saps+national+instruction'
+            },
+            {
+                'title': 'SAPS official portal',
+                'category': 'police',
+                'description': 'Official SAPS portal with media statements, forms, and contact resources.',
+                'url': 'https://www.saps.gov.za/'
+            },
+            {
+                'title': 'Government Gazette and public documents',
+                'category': 'government',
+                'description': 'Government publication archive for legal notices, gazettes, and public acts.',
+                'url': 'https://www.gov.za/documents'
+            }
+        ]
+
+    def extract_act_key(text: str) -> Optional[str]:
+        match = re.search(r'Act(?: No\.)?\s+(\d+)\s+of\s+(\d{4})', text, flags=re.IGNORECASE)
+        if not match:
+            return None
+        return f"{int(match.group(1))}-{match.group(2)}"
+
+    def build_reference_payload(references: List[str], categories: Optional[List[str]]) -> List[Dict[str, Optional[str]]]:
+        resources = current_app.pdf_service.available_resources
+        if categories:
+            filtered_resources = [resource for resource in resources if resource['category'] in categories]
+            if filtered_resources:
+                resources = filtered_resources
+
+        act_resource_map: Dict[str, Dict[str, str]] = {}
+        for resource in resources:
+            act_key = extract_act_key(resource['name'])
+            if act_key and act_key not in act_resource_map:
+                act_resource_map[act_key] = resource
+
+        default_resource = resources[0] if resources else None
+        payload: List[Dict[str, Optional[str]]] = []
+
+        for reference in references:
+            linked_resource = act_resource_map.get(extract_act_key(reference) or '')
+            if not linked_resource and reference.lower().startswith('section') and default_resource:
+                linked_resource = default_resource
+
+            payload.append({
+                'label': reference,
+                'document_url': build_document_url(linked_resource['path']) if linked_resource else None,
+                'source_url': linked_resource['url'] if linked_resource else None
+            })
+
+        return payload
 
     def build_generated_image(category: str, headline: str, subtitle: str) -> Dict[str, str]:
         config = CATEGORY_CONFIG.get(category, CATEGORY_CONFIG['constitutional'])
@@ -462,7 +667,11 @@ def init_routes(app):
             'resources': [
                 {
                     'name': resource['name'],
-                    'category': resource['category']
+                    'category': resource['category'],
+                    'document_url': build_document_url(resource['path']),
+                    'raw_document_url': build_document_file_url(resource['path']),
+                    'source_url': resource['url'],
+                    'status': 'Available'
                 }
                 for resource in matched_resources[:6]
             ]

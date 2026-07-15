@@ -2,6 +2,8 @@ import os
 import openai
 import logging
 import re
+import tempfile
+from pathlib import Path
 from openai import OpenAI, APIError, APIConnectionError, RateLimitError
 from app.military_law_assistant_config import Config
 from typing import Optional, List, Dict
@@ -71,9 +73,16 @@ class AIService:
         self.max_tokens = config.MAX_TOKENS
         self.temperature = config.TEMPERATURE
         self.system_prompt = config.SYSTEM_PROMPT
+        self.tts_model = config.TTS_MODEL
+        self.tts_voice = config.TTS_VOICE
+        self.tts_response_format = config.TTS_RESPONSE_FORMAT
         self.military_keywords = [
             'military', 'defence', 'army', 'soldier', 'navy', 'air force',
             'officer', 'commanding', 'rank', 'court martial', 'disciplinary'
+        ]
+        self.tts_voices = [
+            'marin', 'cedar', 'coral', 'nova', 'sage', 'shimmer',
+            'alloy', 'ash', 'ballad', 'echo', 'fable', 'onyx', 'verse'
         ]
 
     def detect_language(self, question: str) -> Dict[str, str]:
@@ -152,6 +161,53 @@ class AIService:
             logger.error(f"Unexpected error: {str(e)}")
             return self._fallback_response(question, language)
 
+    def get_tts_voice_options(self) -> List[str]:
+        return self.tts_voices.copy()
+
+    def synthesize_speech(
+        self,
+        text: str,
+        language_code: Optional[str] = None,
+        voice: Optional[str] = None
+    ) -> bytes:
+        if not text or not text.strip():
+            raise ValueError("No text was provided for audio generation.")
+
+        if not self.client:
+            raise RuntimeError("Premium AI voice is unavailable because OPENAI_API_KEY is not configured.")
+
+        language = self._resolve_language(language_code, text)
+        selected_voice = voice if voice in self.tts_voices else self.tts_voice
+
+        temp_audio = None
+        try:
+            suffix = f".{self.tts_response_format}"
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp_file:
+                temp_audio = Path(tmp_file.name)
+
+            with self.client.audio.speech.with_streaming_response.create(
+                model=self.tts_model,
+                voice=selected_voice,
+                input=text.strip(),
+                instructions=self._build_tts_instructions(language),
+                response_format=self.tts_response_format
+            ) as response:
+                response.stream_to_file(temp_audio)
+
+            return temp_audio.read_bytes()
+        except (APIError, APIConnectionError, RateLimitError) as exc:
+            logger.error(f"Premium TTS API error: {exc}")
+            raise RuntimeError("Premium AI voice is currently unavailable. Please try again shortly.") from exc
+        except Exception as exc:
+            logger.error(f"Premium TTS failed: {exc}")
+            raise RuntimeError("Premium AI voice generation failed.") from exc
+        finally:
+            if temp_audio and temp_audio.exists():
+                try:
+                    temp_audio.unlink()
+                except OSError as exc:
+                    logger.warning(f"Could not remove temporary TTS file: {exc}")
+
     def _resolve_language(self, language_code: Optional[str], question: str) -> Dict[str, str]:
         if language_code and language_code in LANGUAGE_CONFIG:
             return {
@@ -224,6 +280,14 @@ Required Answer Format:
 5. Special considerations for senior officers
 6. Answer entirely in {language['name']} because that is the user's language
 7. Keep legal citations, section numbers, and Act names precise"""
+
+    def _build_tts_instructions(self, language: Dict[str, str]) -> str:
+        return (
+            f"Speak in {language['name']} with a warm, natural, professional tone. "
+            "Sound human, calm, clear, and reassuring. "
+            "Avoid sounding robotic, exaggerated, or overly dramatic. "
+            "Read legal citations clearly and pace the answer for easy listening."
+        )
 
     def _enhance_answer(self, answer: str, question: str, language: Dict[str, str]) -> str:
         """Improve answer formatting"""

@@ -68,6 +68,18 @@ class PDFService:
                 "name": "Defence Act 42 of 2002",
                 "category": "military"
             },
+            {
+                "url": "https://www.gov.za/sites/default/files/gcis_document/201911/military-discipline-bill-b21-2019.pdf",
+                "path": "military_discipline_bill_b21_2019.pdf",
+                "name": "Military Discipline Bill B21 of 2019",
+                "category": "military"
+            },
+            {
+                "url": "https://www.gov.za/sites/default/files/gcis_document/201409/b31-99.pdf",
+                "path": "military_discipline_supplementary_measures_bill_b31_1999.pdf",
+                "name": "Military Discipline Supplementary Measures Bill B31 of 1999",
+                "category": "military"
+            },
 
             # ── Investigation & Intelligence ────────────────────────────────────
             {

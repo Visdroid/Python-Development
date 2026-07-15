@@ -561,6 +561,161 @@
             margin-bottom: 0.35rem;
         }
 
+        .gallery-card-link,
+        .hero-image-link {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .resource-line {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.8rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        .resource-line:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .resource-line:first-child {
+            padding-top: 0;
+        }
+
+        .resource-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .resource-chip,
+        .inline-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            border-radius: 999px;
+            padding: 0.45rem 0.85rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .resource-chip {
+            border: 1px solid rgba(11, 13, 148, 0.12);
+            background: rgba(11, 13, 148, 0.06);
+            color: var(--primary);
+        }
+
+        .resource-chip:hover,
+        .inline-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .inline-link {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: #fff;
+            color: #334155;
+        }
+
+        .resource-grid-card {
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            padding: 1.25rem;
+            height: 100%;
+        }
+
+        .resource-grid-card h5 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .case-search-panel {
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .case-result-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            padding: 1rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .case-result-title {
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .case-result-meta {
+            font-size: 0.86rem;
+            color: #667085;
+            margin-bottom: 0.55rem;
+        }
+
+        .operational-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .operational-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .audio-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .audio-status {
+            font-size: 0.85rem;
+            color: #667085;
+        }
+
+        .voice-select {
+            min-width: 170px;
+            max-width: 220px;
+        }
+
+        .answer-toolbar {
+            display:flex;
+            justify-content:space-between;
+            gap:1rem;
+            flex-wrap:wrap;
+            align-items:center;
+            margin-bottom: 1rem;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            min-height: 75vh;
+            border: none;
+            border-radius: 10px;
+            background: #f8fafc;
+        }
+
         @media (max-width: 768px) {
             .header-title { font-size: 1.75rem; }
             .tab-content { padding: 1.5rem; }
@@ -608,6 +763,11 @@
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="resources-tab" data-bs-toggle="tab" data-bs-target="#resources-content" type="button" role="tab">
                     <i class="bi bi-file-text"></i> Resources
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="cases-tab" data-bs-toggle="tab" data-bs-target="#cases-content" type="button" role="tab">
+                    <i class="bi bi-archive"></i> Case Archives
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -688,14 +848,35 @@
                 </div>
 
                 <div class="answer-container" id="answer" style="display:none;">
-                    <div style="font-weight: 600; color: var(--primary); margin-bottom: 1rem; display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; align-items:center;">
-                        <span><i class="bi bi-chat-right-text"></i> Legal Answer</span>
-                        <span id="languageBadge" class="language-badge" style="display:none;">
-                            <i class="bi bi-translate"></i>
-                            <span id="languageBadgeText">English</span>
-                        </span>
+                    <div class="answer-toolbar">
+                        <div style="font-weight: 600; color: var(--primary); display:flex; gap:0.75rem; flex-wrap:wrap; align-items:center;">
+                            <span><i class="bi bi-chat-right-text"></i> Legal Answer</span>
+                            <span id="languageBadge" class="language-badge" style="display:none;">
+                                <i class="bi bi-translate"></i>
+                                <span id="languageBadgeText">English</span>
+                            </span>
+                        </div>
+                        <div class="audio-controls">
+                            <select id="premiumVoiceSelect" class="form-select form-select-sm voice-select" aria-label="Premium AI voice">
+                                {% for voice in premium_tts_voices %}
+                                <option value="{{ voice }}" {% if voice == default_tts_voice %}selected{% endif %}>
+                                    {{ voice|capitalize }}{% if voice == 'marin' or voice == 'cedar' %} (Recommended){% endif %}
+                                </option>
+                                {% endfor %}
+                            </select>
+                            <button id="speakAnswerBtn" class="btn btn-outline-primary btn-sm" type="button">
+                                <i class="bi bi-play-circle"></i> Premium Listen
+                            </button>
+                            <button id="stopAudioBtn" class="btn btn-secondary btn-sm" type="button" disabled>
+                                <i class="bi bi-stop-circle"></i> Stop Audio
+                            </button>
+                            <span id="voiceStatus" class="audio-status">AI-generated premium voice with browser fallback.</span>
+                        </div>
                     </div>
                     <div class="answer-content" id="answerContent"></div>
+                    <div style="margin-top:0.85rem; font-size:0.8rem; color:#98a2b3;">
+                        <i class="bi bi-info-circle"></i> The spoken response is AI-generated.
+                    </div>
                 </div>
 
                 <div id="visualInsights" class="visual-panel" style="display:none;">
@@ -725,7 +906,9 @@
                         </div>
 
                         <div class="prompt-hero">
-                            <img id="heroImage" src="" alt="Prompt matched visual">
+                            <a id="heroImageLink" class="hero-image-link" href="#" target="_blank" rel="noopener noreferrer">
+                                <img id="heroImage" src="" alt="Prompt matched visual">
+                            </a>
                             <div class="prompt-hero-meta">
                                 <div id="heroImageTitle" class="prompt-hero-title"></div>
                                 <div id="heroImageSource" class="prompt-hero-source"></div>
@@ -818,48 +1001,44 @@
             <div class="tab-pane fade" id="resources-content" role="tabpanel">
                 <div class="main-card">
                     <h2 class="section-title"><i class="bi bi-library"></i> Available Resources</h2>
-                    <p style="color: #666; margin-bottom: 2rem; font-size: 1.05rem;">📚 <strong>21+ South African Acts</strong> covering all major law sectors</p>
-                    
-                    <div class="row g-4">
-                        <div class="col-lg-6">
-                            <div style="background: linear-gradient(135deg, rgba(211,47,47,0.08) 0%, rgba(211,47,47,0.03) 100%); border-left: 4px solid var(--criminal); border-radius: 8px; padding: 1.5rem;">
-                                <h5 style="color: var(--criminal); font-weight: 700; margin-bottom: 1rem;"><i class="bi bi-book-fill"></i> Criminal Law</h5>
-                                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(211,47,47,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Criminal Procedure Act 51/1977</li>
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(211,47,47,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Sexual Offences Act 32/2007</li>
-                                    <li style="padding: 0.5rem 0; color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Domestic Violence Act 116/1998</li>
-                                </ul>
+                    <p style="color: #666; margin-bottom: 2rem; font-size: 1.05rem;">📚 Open legal PDFs inside the app or jump to the official source links.</p>
+                    <div id="resourcesCatalog" class="row g-4"></div>
+
+                    <h3 class="section-title" style="margin-top:2rem;"><i class="bi bi-diagram-3"></i> Military & SAPS Operational Repositories</h3>
+                    <p style="color:#667085; margin-bottom:0.75rem;">Additional public repositories for Military Police Instructions (MPI), SAPS directives, and related documents.</p>
+                    <div id="operationalResources" class="operational-grid"></div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="cases-content" role="tabpanel">
+                <div class="main-card">
+                    <h2 class="section-title"><i class="bi bi-archive-fill"></i> Public Case Archive Search</h2>
+                    <p style="color:#667085; margin-bottom:1rem;">
+                        Search current and historical public archives using federated links (SAFLII, Judiciary, DOJ, and Government publications).
+                    </p>
+
+                    <div class="case-search-panel">
+                        <div class="row g-2 align-items-end">
+                            <div class="col-lg-5">
+                                <label for="caseSearchInput" class="form-label">Case search query</label>
+                                <input id="caseSearchInput" class="form-control" type="text" placeholder="e.g. military police arrest powers">
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div style="background: linear-gradient(135deg, rgba(0,131,143,0.08) 0%, rgba(0,131,143,0.03) 100%); border-left: 4px solid var(--cyber); border-radius: 8px; padding: 1.5rem;">
-                                <h5 style="color: var(--cyber); font-weight: 700; margin-bottom: 1rem;"><i class="bi bi-shield-fill"></i> Cyber & Digital</h5>
-                                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,131,143,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Cybercrimes Act 19/2020</li>
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(0,131,143,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Electronic Communications Act</li>
-                                    <li style="padding: 0.5rem 0; color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>RICA Act 70/2002</li>
-                                </ul>
+                            <div class="col-lg-4">
+                                <label for="caseSourceSelect" class="form-label">Archive source</label>
+                                <select id="caseSourceSelect" class="form-select">
+                                    <option value="">All sources</option>
+                                </select>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div style="background: linear-gradient(135deg, rgba(56,142,60,0.08) 0%, rgba(56,142,60,0.03) 100%); border-left: 4px solid var(--labour); border-radius: 8px; padding: 1.5rem;">
-                                <h5 style="color: var(--labour); font-weight: 700; margin-bottom: 1rem;"><i class="bi bi-briefcase-fill"></i> Labour & Employment</h5>
-                                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(56,142,60,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Labour Relations Act 66/1995</li>
-                                    <li style="padding: 0.5rem 0; color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>Employment Equity Act 55/1998</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div style="background: linear-gradient(135deg, rgba(123,31,162,0.08) 0%, rgba(123,31,162,0.03) 100%); border-left: 4px solid var(--financial); border-radius: 8px; padding: 1.5rem;">
-                                <h5 style="color: var(--financial); font-weight: 700; margin-bottom: 1rem;"><i class="bi bi-cash-coin"></i> Financial & Commercial</h5>
-                                <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-                                    <li style="padding: 0.5rem 0; border-bottom: 1px solid rgba(123,31,162,0.1); color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>National Credit Act 34/2005</li>
-                                    <li style="padding: 0.5rem 0; color: #444;"><i class="bi bi-check-circle" style="color: var(--success); margin-right: 0.5rem;"></i>FICA Act 38/2001</li>
-                                </ul>
+                            <div class="col-lg-3 d-grid">
+                                <button id="caseSearchBtn" class="btn btn-primary" type="button">
+                                    <i class="bi bi-search"></i> Search Archives
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <div id="caseSearchMessage" class="status-message info" style="display:none;"></div>
+                    <div id="caseResults"></div>
                 </div>
             </div>
 
@@ -913,6 +1092,20 @@
         </div>
     </div>
 
+    <div class="modal fade" id="pdfViewerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen-lg-down modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pdfViewerTitle">Document Viewer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="pdfViewerFrame" class="pdf-frame" src="" title="Legal PDF viewer"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
@@ -921,12 +1114,35 @@
     <script>
         'use strict';
 
+        const resourceCatalogData = {{ resources|tojson }};
+        const caseSourcesData = {{ case_sources|tojson }};
+        const operationalResourcesData = {{ operational_resources|tojson }};
+        const premiumVoiceOptions = {{ premium_tts_voices|tojson }};
+        const defaultPremiumVoice = {{ default_tts_voice|tojson }};
+        const languageLocales = {
+            en: 'en-ZA',
+            af: 'af-ZA',
+            zu: 'zu-ZA',
+            xh: 'xh-ZA',
+            st: 'st-ZA',
+            tn: 'tn-ZA',
+            nso: 'nso-ZA',
+            ts: 'ts-ZA',
+            ve: 've-ZA',
+            nr: 'nr-ZA',
+            ss: 'ss-ZA'
+        };
+
         const elements = {
             recordBtn: document.getElementById('recordBtn'),
             uploadBtn: document.getElementById('uploadBtn'),
             voiceUpload: document.getElementById('voiceUpload'),
             questionInput: document.getElementById('question'),
             askBtn: document.getElementById('askBtn'),
+            premiumVoiceSelect: document.getElementById('premiumVoiceSelect'),
+            speakAnswerBtn: document.getElementById('speakAnswerBtn'),
+            stopAudioBtn: document.getElementById('stopAudioBtn'),
+            voiceStatus: document.getElementById('voiceStatus'),
             answerBox: document.getElementById('answer'),
             answerContent: document.getElementById('answerContent'),
             languageBadge: document.getElementById('languageBadge'),
@@ -947,9 +1163,20 @@
             heroImage: document.getElementById('heroImage'),
             heroImageTitle: document.getElementById('heroImageTitle'),
             heroImageSource: document.getElementById('heroImageSource'),
+            heroImageLink: document.getElementById('heroImageLink'),
             imageGallery: document.getElementById('imageGallery'),
             relevanceChart: document.getElementById('relevanceChart'),
             resourceChart: document.getElementById('resourceChart'),
+            resourcesCatalog: document.getElementById('resourcesCatalog'),
+            operationalResources: document.getElementById('operationalResources'),
+            caseSearchInput: document.getElementById('caseSearchInput'),
+            caseSourceSelect: document.getElementById('caseSourceSelect'),
+            caseSearchBtn: document.getElementById('caseSearchBtn'),
+            caseSearchMessage: document.getElementById('caseSearchMessage'),
+            caseResults: document.getElementById('caseResults'),
+            pdfViewerTitle: document.getElementById('pdfViewerTitle'),
+            pdfViewerFrame: document.getElementById('pdfViewerFrame'),
+            pdfViewerModal: document.getElementById('pdfViewerModal'),
             categoryPills: document.querySelectorAll('.category-pill'),
             quickQuestions: document.querySelectorAll('.quick-question')
         };
@@ -959,6 +1186,13 @@
             audioChunks: [],
             isProcessing: false,
             selectedCategory: 'all',
+            voices: [],
+            currentLanguage: null,
+            currentUtterance: null,
+            premiumAudioUrl: null,
+            premiumAudio: null,
+            pdfModal: null,
+            caseSearchBusy: false,
             charts: {
                 relevance: null,
                 resources: null
@@ -968,6 +1202,21 @@
         function init() {
             setupEventListeners();
             checkBrowserSupport();
+            initSpeechSynthesis();
+            renderResourceCatalog(resourceCatalogData);
+            renderOperationalResources(operationalResourcesData);
+            initCaseArchiveSearch(caseSourcesData);
+            state.premiumAudio = new Audio();
+            state.premiumAudio.preload = 'none';
+            state.premiumAudio.addEventListener('ended', handleAudioPlaybackEnd);
+            state.premiumAudio.addEventListener('pause', () => {
+                if (state.premiumAudio && state.premiumAudio.currentTime === 0) {
+                    handleAudioPlaybackEnd();
+                }
+            });
+            if (elements.pdfViewerModal && window.bootstrap) {
+                state.pdfModal = new bootstrap.Modal(elements.pdfViewerModal);
+            }
         }
 
         function setupEventListeners() {
@@ -975,9 +1224,17 @@
             elements.uploadBtn?.addEventListener('click', () => elements.voiceUpload.click());
             elements.voiceUpload?.addEventListener('change', handleFileUpload);
             elements.askBtn?.addEventListener('click', askQuestion);
+            elements.speakAnswerBtn?.addEventListener('click', speakAnswer);
+            elements.stopAudioBtn?.addEventListener('click', stopSpeech);
             elements.questionInput?.addEventListener('keypress', (e) => {
                 if (e.key === 'Enter' && e.ctrlKey) askQuestion();
             });
+            elements.caseSearchInput?.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    searchCaseArchives();
+                }
+            });
+            elements.caseSearchBtn?.addEventListener('click', searchCaseArchives);
 
             elements.categoryPills.forEach(pill => {
                 pill.addEventListener('click', function() {
@@ -993,6 +1250,8 @@
                     askQuestion();
                 });
             });
+
+            document.addEventListener('click', handleInteractiveLinks);
         }
 
         function checkBrowserSupport() {
@@ -1000,6 +1259,60 @@
                 elements.recordBtn.disabled = true;
                 showStatus("Voice recording not supported", "danger");
             }
+        }
+
+        function initSpeechSynthesis() {
+            if (!('speechSynthesis' in window)) {
+                elements.voiceStatus.textContent = 'Premium AI voice is available when your OpenAI key is configured.';
+                return;
+            }
+
+            const loadVoices = () => {
+                state.voices = window.speechSynthesis.getVoices();
+                updateVoiceStatus();
+            };
+
+            loadVoices();
+            if ('onvoiceschanged' in window.speechSynthesis) {
+                window.speechSynthesis.onvoiceschanged = loadVoices;
+            }
+        }
+
+        function getPreferredVoice(languageCode) {
+            const targetLocale = (languageLocales[languageCode] || 'en-ZA').toLowerCase();
+            const targetPrefix = targetLocale.split('-')[0];
+            const candidates = state.voices.length
+                ? state.voices.filter(voice => (voice.lang || '').toLowerCase().startsWith(targetPrefix))
+                : [];
+            const voicePool = candidates.length ? candidates : state.voices;
+
+            const scoreVoice = (voice) => {
+                const voiceName = (voice.name || '').toLowerCase();
+                const voiceLang = (voice.lang || '').toLowerCase();
+                let score = 0;
+
+                if (voiceLang === targetLocale) score += 12;
+                else if (voiceLang.startsWith(targetPrefix)) score += 8;
+                if (voiceName.includes('natural')) score += 12;
+                if (voiceName.includes('google')) score += 8;
+                if (voiceName.includes('microsoft')) score += 8;
+                if (voiceName.includes('desktop')) score += 4;
+                if (voice.localService) score += 3;
+                if (voice.default) score += 2;
+                if (voiceName.includes('robot')) score -= 10;
+
+                return score;
+            };
+
+            return voicePool.sort((left, right) => scoreVoice(right) - scoreVoice(left))[0] || null;
+        }
+
+        function updateVoiceStatus() {
+            const languageCode = state.currentLanguage?.code || 'en';
+            const voice = getPreferredVoice(languageCode);
+            elements.voiceStatus.textContent = voice
+                ? `Premium AI voice with browser fallback (${voice.name} fallback).`
+                : 'Premium AI voice with browser fallback.';
         }
 
         async function toggleRecording() {
@@ -1097,13 +1410,12 @@
                 elements.transcribedQuestion.textContent = question;
             }
             elements.answerBox.style.display = 'block';
-            elements.answerContent.textContent = data.answer || 'No answer';
+            elements.answerContent.innerHTML = formatAnswerHtml(data.answer || 'No answer');
             renderLanguage(data.language);
 
-            if (data.references && data.references.length > 0) {
+            if (data.reference_links && data.reference_links.length > 0) {
                 elements.documentReferences.style.display = 'block';
-                elements.referencesText.innerHTML = data.references
-                    .map(ref => `<span class="reference-badge">${ref}</span>`).join('');
+                elements.referencesText.innerHTML = renderReferenceLinks(data.reference_links);
             } else {
                 elements.documentReferences.style.display = 'none';
                 elements.referencesText.innerHTML = '';
@@ -1125,11 +1437,15 @@
         function renderLanguage(language) {
             if (!language || !language.name) {
                 elements.languageBadge.style.display = 'none';
+                state.currentLanguage = { code: 'en', name: 'English' };
+                updateVoiceStatus();
                 return;
             }
 
+            state.currentLanguage = language;
             elements.languageBadgeText.textContent = `Answer language: ${language.name}`;
             elements.languageBadge.style.display = 'inline-flex';
+            updateVoiceStatus();
         }
 
         function renderVisualInsights(visuals) {
@@ -1175,7 +1491,16 @@
             const resources = visuals.resources || [];
             elements.resourceList.innerHTML = resources.length
                 ? resources.map(resource => `
-                    <div>&bull; ${escapeHtml(resource.name)} <span style="color:#98a2b3;">(${escapeHtml(resource.category)})</span></div>
+                    <div class="resource-line">
+                        <div>
+                            <div style="font-weight:600; color:var(--dark);">${escapeHtml(resource.name)}</div>
+                            <div style="color:#98a2b3;">${escapeHtml(resource.category)}</div>
+                        </div>
+                        <div class="resource-actions">
+                            ${resource.document_url ? `<button class="resource-chip" type="button" data-document-url="${escapeAttribute(resource.document_url)}" data-document-title="${escapeAttribute(resource.name)}"><i class="bi bi-file-earmark-pdf"></i> Read PDF</button>` : ''}
+                            ${resource.source_url ? `<a class="inline-link" href="${escapeAttribute(resource.source_url)}" target="_blank" rel="noopener noreferrer"><i class="bi bi-box-arrow-up-right"></i> Source</a>` : ''}
+                        </div>
+                    </div>
                 `).join('')
                 : '<div>No matched legal resources were identified.</div>';
         }
@@ -1186,23 +1511,147 @@
                 elements.heroImage.src = hero.url;
                 elements.heroImage.alt = hero.alt || hero.title || 'Prompt matched visual';
                 elements.heroImageTitle.textContent = hero.title || 'Prompt image';
-                elements.heroImageSource.textContent = hero.source ? `Source: ${hero.source}` : '';
+                elements.heroImageLink.href = hero.source_url || hero.url || '#';
+                elements.heroImageLink.style.pointerEvents = (hero.source_url || hero.url) ? 'auto' : 'none';
+                elements.heroImageSource.innerHTML = hero.source
+                    ? `Source: ${hero.source_url ? `<a href="${escapeAttribute(hero.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(hero.source)}</a>` : escapeHtml(hero.source)}`
+                    : '';
             } else {
                 elements.heroImage.removeAttribute('src');
                 elements.heroImage.alt = 'Prompt matched visual';
                 elements.heroImageTitle.textContent = '';
                 elements.heroImageSource.textContent = '';
+                elements.heroImageLink.href = '#';
+                elements.heroImageLink.style.pointerEvents = 'none';
             }
 
             elements.imageGallery.innerHTML = images.slice(1).map(image => `
                 <div class="gallery-card">
-                    <img src="${escapeAttribute(image.url)}" alt="${escapeAttribute(image.alt || image.title || 'Prompt image')}">
-                    <div class="gallery-card-body">
-                        <div class="gallery-card-title">${escapeHtml(image.title || 'Prompt image')}</div>
-                        <div class="prompt-hero-source">${escapeHtml(image.source || '')}</div>
+                    <a class="gallery-card-link" href="${escapeAttribute(image.source_url || image.url || '#')}" target="_blank" rel="noopener noreferrer">
+                        <img src="${escapeAttribute(image.url)}" alt="${escapeAttribute(image.alt || image.title || 'Prompt image')}">
+                        <div class="gallery-card-body">
+                            <div class="gallery-card-title">${escapeHtml(image.title || 'Prompt image')}</div>
+                            <div class="prompt-hero-source">${escapeHtml(image.source || '')}</div>
+                        </div>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderResourceCatalog(resourceCatalog) {
+            if (!elements.resourcesCatalog) return;
+
+            elements.resourcesCatalog.innerHTML = (resourceCatalog || []).map(group => `
+                <div class="col-lg-6">
+                    <div class="resource-grid-card" style="border-top:4px solid ${escapeAttribute(group.color || '#1976d2')};">
+                        <h5 style="color:${escapeAttribute(group.color || '#1976d2')};">
+                            <i class="bi ${escapeAttribute(group.icon || 'bi-file-earmark-pdf')}"></i>
+                            ${escapeHtml(group.label || 'Resources')}
+                        </h5>
+                        ${(group.resources || []).map(resource => `
+                            <div class="resource-line">
+                                <div>
+                                    <div style="font-weight:600; color:var(--dark);">${escapeHtml(resource.name)}</div>
+                                    <div style="color:#98a2b3;">${escapeHtml(resource.status || '')}</div>
+                                </div>
+                                <div class="resource-actions">
+                                    ${resource.document_url ? `<button class="resource-chip" type="button" data-document-url="${escapeAttribute(resource.document_url)}" data-document-title="${escapeAttribute(resource.name)}"><i class="bi bi-book"></i> Read in app</button>` : ''}
+                                    ${resource.source_url ? `<a class="inline-link" href="${escapeAttribute(resource.source_url)}" target="_blank" rel="noopener noreferrer"><i class="bi bi-link-45deg"></i> Source</a>` : ''}
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             `).join('');
+        }
+
+        function renderOperationalResources(resources) {
+            if (!elements.operationalResources) return;
+
+            elements.operationalResources.innerHTML = (resources || []).map(resource => `
+                <div class="operational-card">
+                    <div style="font-weight:700; color:var(--dark); margin-bottom:0.45rem;">${escapeHtml(resource.title || 'Resource')}</div>
+                    <div style="font-size:0.85rem; color:#98a2b3; margin-bottom:0.55rem;">${escapeHtml(resource.category || '')}</div>
+                    <div style="color:#475467; margin-bottom:0.8rem;">${escapeHtml(resource.description || '')}</div>
+                    <a class="inline-link" href="${escapeAttribute(resource.url || '#')}" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-box-arrow-up-right"></i> Open Repository
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function initCaseArchiveSearch(sources) {
+            if (!elements.caseSourceSelect) return;
+
+            const options = (sources || []).map(source => `
+                <option value="${escapeAttribute(source.id)}">${escapeHtml(source.name)}</option>
+            `).join('');
+            elements.caseSourceSelect.innerHTML = `<option value="">All sources</option>${options}`;
+            renderCaseResults([]);
+            showCaseMessage('Use a query to search public case archives.', 'info');
+        }
+
+        async function searchCaseArchives() {
+            const query = elements.caseSearchInput?.value?.trim() || '';
+            if (!query || state.caseSearchBusy) {
+                return;
+            }
+
+            state.caseSearchBusy = true;
+            elements.caseSearchBtn.disabled = true;
+            showCaseMessage('Searching public archives...', 'info');
+            renderCaseResults([]);
+
+            try {
+                const source = elements.caseSourceSelect?.value || '';
+                const response = await fetch(
+                    `/cases/search?q=${encodeURIComponent(query)}&source=${encodeURIComponent(source)}`
+                );
+                if (!response.ok) {
+                    throw new Error('Case archive search failed.');
+                }
+
+                const payload = await response.json();
+                renderCaseResults(payload.results || []);
+                showCaseMessage(payload.message || 'Search complete.', 'success');
+            } catch (error) {
+                showCaseMessage('Could not search public archives right now.', 'danger');
+            } finally {
+                state.caseSearchBusy = false;
+                elements.caseSearchBtn.disabled = false;
+            }
+        }
+
+        function renderCaseResults(results) {
+            if (!elements.caseResults) return;
+
+            if (!results || !results.length) {
+                elements.caseResults.innerHTML = `
+                    <div class="case-result-card">
+                        <div class="case-result-meta">No archive links yet. Run a case search to view sources.</div>
+                    </div>
+                `;
+                return;
+            }
+
+            elements.caseResults.innerHTML = results.map(result => `
+                <div class="case-result-card">
+                    <div class="case-result-title">${escapeHtml(result.title || 'Archive result')}</div>
+                    <div class="case-result-meta">${escapeHtml(result.source || '')} &bull; ${escapeHtml(result.coverage || '')}</div>
+                    <div style="color:#475467; margin-bottom:0.8rem;">${escapeHtml(result.description || '')}</div>
+                    <a class="inline-link" href="${escapeAttribute(result.url || '#')}" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-box-arrow-up-right"></i> Open public archive search
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function showCaseMessage(message, type) {
+            if (!elements.caseSearchMessage) return;
+
+            elements.caseSearchMessage.textContent = message;
+            elements.caseSearchMessage.className = `status-message ${type}`;
+            elements.caseSearchMessage.style.display = 'block';
         }
 
         function renderCharts(charts) {
@@ -1273,6 +1722,168 @@
                 state.charts.resources.destroy();
                 state.charts.resources = null;
             }
+        }
+
+        function renderReferenceLinks(referenceLinks) {
+            return referenceLinks.map(reference => {
+                if (reference.document_url) {
+                    return `<button class="reference-badge" type="button" data-document-url="${escapeAttribute(reference.document_url)}" data-document-title="${escapeAttribute(reference.label)}">${escapeHtml(reference.label)}</button>`;
+                }
+                if (reference.source_url) {
+                    return `<a class="reference-badge" href="${escapeAttribute(reference.source_url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(reference.label)}</a>`;
+                }
+                return `<span class="reference-badge">${escapeHtml(reference.label)}</span>`;
+            }).join('');
+        }
+
+        function formatAnswerHtml(answer) {
+            const escaped = escapeHtml(answer);
+            const linked = escaped.replace(
+                /(https?:\/\/[^\s<]+)/g,
+                '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
+            );
+            return linked.replace(/\n/g, '<br>');
+        }
+
+        function handleInteractiveLinks(event) {
+            const documentTrigger = event.target.closest('[data-document-url]');
+            if (!documentTrigger) return;
+
+            event.preventDefault();
+            openDocumentViewer(
+                documentTrigger.getAttribute('data-document-title') || 'Legal document',
+                documentTrigger.getAttribute('data-document-url')
+            );
+        }
+
+        function openDocumentViewer(title, url) {
+            if (!url) return;
+
+            if (state.pdfModal) {
+                elements.pdfViewerTitle.textContent = title || 'Legal document';
+                elements.pdfViewerFrame.src = url;
+                state.pdfModal.show();
+                return;
+            }
+
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        async function speakAnswer() {
+            const text = elements.answerContent.textContent.trim();
+            if (!text) return;
+
+            stopSpeech();
+            const languageCode = state.currentLanguage?.code || 'en';
+            const selectedVoice = premiumVoiceOptions.includes(elements.premiumVoiceSelect.value)
+                ? elements.premiumVoiceSelect.value
+                : defaultPremiumVoice;
+
+            elements.speakAnswerBtn.disabled = true;
+            elements.stopAudioBtn.disabled = false;
+            elements.voiceStatus.textContent = `Generating premium AI voice with ${selectedVoice}...`;
+
+            try {
+                const response = await fetch('/speak', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text,
+                        language_code: languageCode,
+                        voice: selectedVoice
+                    })
+                });
+
+                if (!response.ok) {
+                    let message = 'Premium AI voice is unavailable.';
+                    try {
+                        const payload = await response.json();
+                        if (payload.error) {
+                            message = payload.error;
+                        }
+                    } catch (error) {
+                        // Ignore JSON parse failures and use default message.
+                    }
+                    throw new Error(message);
+                }
+
+                const audioBlob = await response.blob();
+                if (!audioBlob.size) {
+                    throw new Error('Premium AI voice returned an empty audio response.');
+                }
+
+                if (state.premiumAudioUrl) {
+                    URL.revokeObjectURL(state.premiumAudioUrl);
+                }
+
+                state.premiumAudioUrl = URL.createObjectURL(audioBlob);
+                state.premiumAudio.src = state.premiumAudioUrl;
+                await state.premiumAudio.play();
+                elements.voiceStatus.textContent = `Playing premium AI voice (${selectedVoice}).`;
+            } catch (error) {
+                elements.voiceStatus.textContent = `${error.message} Falling back to browser voice.`;
+                speakAnswerWithBrowser(text, languageCode);
+            }
+        }
+
+        function stopSpeech() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            state.currentUtterance = null;
+            if (state.premiumAudio) {
+                state.premiumAudio.pause();
+                state.premiumAudio.currentTime = 0;
+            }
+            elements.stopAudioBtn.disabled = true;
+            elements.speakAnswerBtn.disabled = false;
+            updateVoiceStatus();
+        }
+
+        function speakAnswerWithBrowser(text, languageCode) {
+            if (!('speechSynthesis' in window)) {
+                elements.stopAudioBtn.disabled = true;
+                elements.speakAnswerBtn.disabled = false;
+                elements.voiceStatus.textContent = 'Premium AI voice failed and browser fallback is unavailable.';
+                return;
+            }
+
+            const preferredVoice = getPreferredVoice(languageCode);
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = preferredVoice?.lang || languageLocales[languageCode] || 'en-ZA';
+            utterance.rate = 0.94;
+            utterance.pitch = 1.02;
+            utterance.volume = 1;
+
+            if (preferredVoice) {
+                utterance.voice = preferredVoice;
+            }
+
+            utterance.onstart = () => {
+                state.currentUtterance = utterance;
+                elements.stopAudioBtn.disabled = false;
+                elements.speakAnswerBtn.disabled = true;
+                elements.voiceStatus.textContent = preferredVoice
+                    ? `Using browser fallback voice: ${preferredVoice.name}`
+                    : 'Using browser fallback voice';
+            };
+
+            utterance.onend = handleAudioPlaybackEnd;
+            utterance.onerror = () => {
+                state.currentUtterance = null;
+                elements.stopAudioBtn.disabled = true;
+                elements.speakAnswerBtn.disabled = false;
+                elements.voiceStatus.textContent = 'Could not play the audio response.';
+            };
+
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function handleAudioPlaybackEnd() {
+            state.currentUtterance = null;
+            elements.stopAudioBtn.disabled = true;
+            elements.speakAnswerBtn.disabled = false;
+            updateVoiceStatus();
         }
 
         function escapeHtml(value) {

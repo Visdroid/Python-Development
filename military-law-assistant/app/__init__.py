@@ -42,10 +42,12 @@ def create_app():
         from app.services.pdf_service import PDFService
         from app.services.audio_service import AudioService
         from app.services.ai_service import AIService
+        from app.services.case_archive_service import CaseArchiveService
         
         app.pdf_service = PDFService()
         app.audio_service = AudioService()
         app.ai_service = AIService()
+        app.case_archive_service = CaseArchiveService()
         
         # Verify at least one PDF is loaded
         if not app.pdf_service.available_resources:

@@ -3705,3 +3705,1161 @@ AttributeError: module 'openai' has no attribute 'error'
 2026-07-14 21:01:29,702 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmp_fjva8in.wav
 2026-07-14 21:01:43,948 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2026-07-14 21:01:45,848 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:01:45] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:15:01,819 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-07-14 21:15:01,819 - app.services.ai_service - ERROR - OpenAI API error: Error code: 400 - {'error': {'message': "This model's maximum context length is 8192 tokens. However, you requested 8964 tokens (4964 in the messages, 4000 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': 'messages', 'code': 'context_length_exceeded'}}
+2026-07-14 21:15:03,570 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:15:03] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:21:44,730 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-14 21:21:45,529 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:21:49,896 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:21:50,830 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:21:50,830 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:21:50,830 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:21:50,830 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:21:50,830 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:21:51,713 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:21:51,713 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:21:52,629 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:21:52,629 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:21:52,629 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:21:52,629 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:21:52,629 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:21:52,629 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:21:52,629 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:21:52,629 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:21:52,629 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:21:53,196 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:21:53,229 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:21:53,246 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:22:37,145 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:22:37,161 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:22:37,161 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:22:37,161 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:22:37,161 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:22:37,161 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:22:39,096 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:22:39,096 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:22:39,096 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:22:39,096 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:22:39,096 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:22:40,112 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:22:40,112 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:22:40,895 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:22:40,895 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:22:40,895 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:22:40,895 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:22:40,895 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:22:40,895 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:22:40,895 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:22:40,895 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:22:40,895 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:22:40,895 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:22:44,095 - app.services.ai_service - WARNING - No OpenAI API key configured - using fallback response
+2026-07-14 21:22:55,178 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:22:55] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:22:59,896 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:22:59] "GET /documents/defence_act.pdf HTTP/1.1" 200 -
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:23:49,526 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:23:49,542 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:23:49,543 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:23:49,544 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:23:49,545 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:23:49,546 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:23:49,546 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:23:49,547 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:23:50,216 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:23:50,216 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:23:50,216 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:23:50,216 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:23:50,216 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:23:50,908 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:23:50,908 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:23:51,549 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:23:51,549 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:23:51,549 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:23:51,549 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:23:51,549 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:23:51,549 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:23:51,556 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:23:51,556 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:23:51,556 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:23:51,557 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:23:51,587 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.43.192:5000
+2026-07-14 21:23:51,587 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-07-14 21:23:51,587 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:23:53,791 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:23:53] "GET / HTTP/1.1" 200 -
+2026-07-14 21:23:54,608 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:23:54,608 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:23:54,609 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:23:54,611 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:23:54,612 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:23:54,613 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:23:54,614 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:23:54,615 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:23:54,616 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:23:54,616 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:23:54,617 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:23:54,618 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:23:54,619 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:23:54,621 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:23:55,562 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:23:55,562 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:23:55,562 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:23:55,562 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:23:55,562 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:23:56,315 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:23:56,317 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:23:58,116 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:23:58] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:23:58,795 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:23:58,795 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:23:58,795 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:23:58,795 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:23:58,795 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:23:58,795 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:23:58,795 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:23:58,809 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:23:58,809 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:23:58,809 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:23:58,836 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:23:58,837 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-14 21:24:08,342 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmpp2srzoup.wav
+2026-07-14 21:24:22,144 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 21:24:24,194 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:24:24] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:25:24,532 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:25:24] "GET /documents/constitution.pdf HTTP/1.1" 200 -
+2026-07-14 21:26:04,064 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\military_law_assistant_config.py', reloading
+2026-07-14 21:26:04,564 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:26:04,646 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\military_law_assistant_config.py', reloading
+2026-07-14 21:26:05,037 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:26:08,783 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:26:08,784 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:26:08,784 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:26:08,785 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:26:08,786 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:26:08,786 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:26:08,787 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:26:08,788 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:26:08,788 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:26:08,789 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:26:08,790 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:26:08,791 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:26:08,796 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:26:08,797 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:26:09,181 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:26:09,182 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:26:09,183 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:26:09,184 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:26:09,185 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:26:09,187 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:26:09,188 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:26:09,189 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:26:09,190 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:26:09,194 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:26:09,196 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:26:09,197 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:26:09,198 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:26:09,199 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:26:09,803 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:26:09,805 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:26:09,806 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:26:09,807 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:26:09,807 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:26:10,147 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:26:10,149 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:26:10,150 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:26:10,150 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:26:10,151 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:26:10,852 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:10,856 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:26:11,542 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:11,549 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:26:12,125 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:12,129 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:26:12,130 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:26:12,131 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:26:12,131 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:26:12,132 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:26:12,132 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:26:12,133 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:26:12,133 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:26:12,512 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:12,516 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:26:12,517 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:26:12,519 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:26:12,519 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:26:12,520 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:26:12,521 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:26:12,521 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:26:12,521 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:26:12,522 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:26:12,552 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:26:12,557 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-14 21:26:12,917 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:26:12,938 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:26:12,946 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-14 21:26:16,635 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-14 21:26:16,987 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-14 21:26:17,155 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:26:17,652 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:26:25,460 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:26:25,460 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:26:25,460 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:26:25,460 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:26:25,460 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:26:25,477 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:26:25,480 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:26:25,491 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:26:25,495 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:26:25,497 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:26:25,498 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:26:25,502 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:26:25,502 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:26:25,502 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:26:25,960 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:26:25,975 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:26:25,977 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:26:26,877 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:26:26,877 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:26:26,877 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:26:26,877 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:26:26,893 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:26:27,327 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:26:27,327 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:26:27,327 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:26:27,327 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:26:27,327 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:26:28,643 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:28,660 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:26:28,832 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:28,844 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:26:29,860 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:29,860 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:26:29,860 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:26:29,860 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:26:29,860 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:26:29,870 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:26:29,870 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:26:29,870 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:26:29,871 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:26:29,871 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:26:29,910 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:26:29,926 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-14 21:26:29,977 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:29,993 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:26:29,993 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:26:29,993 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:26:29,993 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:26:29,993 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:26:29,993 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:26:29,993 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:26:29,993 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:26:30,995 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:26:31,043 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:26:31,076 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-14 21:26:49,258 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:26:49,258 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:26:49,258 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:26:49,275 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:26:50,293 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:26:50,293 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:26:50,293 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:26:50,309 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:26:50,309 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:26:51,325 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:51,325 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:26:52,309 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:26:52,309 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:26:52,309 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:26:52,309 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:26:52,309 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:26:52,309 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:26:52,309 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:26:52,309 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:26:52,309 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:26:52,309 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:26:59,725 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:26:59] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:27:21,343 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:27:21] "GET / HTTP/1.1" 200 -
+2026-07-14 21:27:22,557 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:27:22] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:27:34,108 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmp8j_gdqhj.wav
+2026-07-14 21:27:56,841 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 21:27:58,532 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:27:58] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:28:03,790 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:28:19,340 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:28:19] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:28:35,227 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:28:37,627 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:28:44,957 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:28:53,792 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:28:53] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:28:54,322 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:28:54] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:28:54,388 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:28:58,224 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:28:58] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:29:02,489 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:29:02] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:29:13,708 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmppgsxecti.wav
+2026-07-14 21:29:14,046 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:29:14] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:29:24,207 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 21:29:26,206 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:29:26] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:29:54,277 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:29:54] "[36mGET /documents/constitution.pdf HTTP/1.1[0m" 304 -
+2026-07-14 21:31:01,172 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-14 21:31:01,338 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-14 21:31:01,738 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:31:02,105 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:31:06,738 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:31:06,751 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:31:06,752 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:31:06,754 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:31:06,754 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:31:06,754 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:31:06,761 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:31:07,105 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:31:07,121 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:31:07,921 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:31:07,921 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:31:07,921 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:31:07,921 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:31:07,921 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:31:08,155 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:31:08,155 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:31:08,155 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:31:08,155 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:31:08,155 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:31:08,930 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:08,932 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:31:09,187 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:09,204 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:31:09,987 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:09,990 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:31:09,990 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:31:09,990 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:31:09,990 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:31:10,003 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:31:10,005 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:31:10,005 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:31:10,005 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:31:10,010 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:31:10,055 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:31:10,055 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-14 21:31:10,338 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:10,338 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:31:10,338 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:31:10,338 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:31:10,338 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:31:10,355 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:31:10,355 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:31:10,355 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:31:10,355 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:31:11,088 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:31:11,121 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:31:11,121 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:31:19,304 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:31:20,187 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:31:20,187 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:31:20,187 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:31:20,187 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:31:20,187 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:31:20,971 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:20,971 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:31:21,921 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:31:21,921 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:31:21,921 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:31:21,921 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:31:21,921 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:31:21,936 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:31:21,936 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:31:21,936 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:31:21,936 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:31:21,936 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:31:32,672 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:31:32] "GET /document-viewer/defence_act.pdf HTTP/1.1" 200 -
+2026-07-14 21:31:37,622 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:31:37] "GET / HTTP/1.1" 200 -
+2026-07-14 21:31:39,237 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:31:39] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:31:43,174 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:31:43] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:31:59,833 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmpzq0y2d7c.wav
+2026-07-14 21:32:10,753 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 21:32:12,853 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:32:12] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:32:18,235 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-14 21:32:31,003 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:32:31] "POST /speak HTTP/1.1" 200 -
+2026-07-14 21:32:47,409 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:32:47] "GET /document-viewer/constitution.pdf HTTP/1.1" 200 -
+2026-07-14 21:32:48,134 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:32:48] "[36mGET /documents/constitution.pdf HTTP/1.1[0m" 304 -
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:34:08,686 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:34:08,701 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:34:08,701 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:34:08,701 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:34:09,701 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:34:09,718 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:34:09,718 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:34:09,718 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:34:09,718 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:34:10,484 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:34:10,484 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:34:11,227 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:34:11,237 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:34:11,238 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:34:11,239 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:34:11,240 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:34:11,241 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:34:11,241 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:34:11,241 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:34:11,241 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:34:11,242 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:34:11,853 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:34:11] "GET /document-viewer/defence_act.pdf HTTP/1.1" 200 -
+2026-07-14 21:35:21,419 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\__init__.py', reloading
+2026-07-14 21:35:21,637 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\__init__.py', reloading
+2026-07-14 21:35:22,001 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:35:22,001 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:35:25,486 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:35:25,486 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:35:25,501 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:35:25,502 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:35:25,503 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:35:25,586 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:35:25,598 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:35:25,601 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:35:25,603 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:35:25,606 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:35:25,608 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:35:25,609 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:35:26,418 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:35:26,418 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:35:26,418 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:35:26,418 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:35:26,418 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:35:26,484 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:35:26,484 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:35:26,484 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:35:26,484 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:35:26,484 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:35:27,255 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:27,255 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:35:28,139 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:28,141 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:35:28,142 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:35:28,142 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:35:28,143 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:35:28,143 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:35:28,143 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:35:28,144 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:35:28,144 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:35:28,700 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:35:28,718 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:35:28,722 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-14 21:35:34,102 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:35:34,102 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:35:34,102 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:35:34,117 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:35:34,122 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:35:34,123 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:35:34,123 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:35:34,125 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:35:34,126 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:35:34,790 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:35:34,790 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:35:34,790 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:35:34,790 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:35:34,790 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:35:35,500 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:35,500 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:35:36,200 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:36,200 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:35:36,200 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:35:36,200 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:35:36,200 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:35:36,200 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:35:36,200 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:35:36,200 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:35:36,200 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:35:36,200 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:35:36,240 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.43.192:5000
+2026-07-14 21:35:36,241 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-07-14 21:35:36,243 - werkzeug - INFO -  * Restarting with stat
+2026-07-14 21:35:38,712 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:35:38] "GET / HTTP/1.1" 200 -
+2026-07-14 21:35:38,900 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-14 21:35:38,901 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-14 21:35:38,902 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-14 21:35:38,903 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-14 21:35:38,904 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-14 21:35:38,905 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-14 21:35:38,908 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-14 21:35:38,910 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-14 21:35:38,911 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-14 21:35:38,913 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-14 21:35:38,914 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-14 21:35:38,915 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-14 21:35:38,917 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-14 21:35:38,918 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-14 21:35:39,968 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-14 21:35:39,984 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-14 21:35:39,984 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-14 21:35:39,984 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-14 21:35:39,988 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-14 21:35:41,092 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:41,092 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-14 21:35:42,156 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:35:42] "GET /law HTTP/1.1" 200 -
+2026-07-14 21:35:43,200 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-14 21:35:43,200 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-14 21:35:43,200 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-14 21:35:43,200 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-14 21:35:43,200 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-14 21:35:43,200 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-14 21:35:43,200 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-14 21:35:43,200 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-14 21:35:43,200 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-14 21:35:43,213 - root - INFO - Loaded 21 legal documents
+2026-07-14 21:35:43,234 - werkzeug - WARNING -  * Debugger is active!
+2026-07-14 21:35:43,235 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-14 21:35:52,007 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmp2aktrn7w.wav
+2026-07-14 21:36:10,033 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-14 21:36:12,250 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:36:12] "POST /ask HTTP/1.1" 200 -
+2026-07-14 21:36:19,849 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:36:19] "GET /document-viewer/defence_act.pdf HTTP/1.1" 200 -
+2026-07-14 21:36:20,133 - werkzeug - INFO - 127.0.0.1 - - [14/Jul/2026 21:36:20] "GET /documents/defence_act.pdf HTTP/1.1" 200 -
+2026-07-15 07:54:30,260 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 07:54:30] "GET /law HTTP/1.1" 200 -
+2026-07-15 08:03:35,620 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:03:35] "GET /document-viewer/defence_act.pdf HTTP/1.1" 200 -
+2026-07-15 08:03:35,895 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:03:35] "[36mGET /documents/defence_act.pdf HTTP/1.1[0m" 304 -
+2026-07-15 08:08:50,269 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:08:50,779 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:08:51,123 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:08:51,718 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:08:55,164 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:08:55,165 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:08:55,166 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:08:55,166 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:08:55,167 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:08:55,168 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:08:55,169 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:08:55,169 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:08:55,170 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:08:55,171 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:08:55,172 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:08:55,172 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:08:55,174 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:08:55,175 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:08:55,684 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:08:55,698 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:08:55,725 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:08:55,745 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:08:55,763 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:08:55,775 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:08:55,809 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:08:55,849 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:08:55,892 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:08:55,892 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:08:55,931 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:08:55,942 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:08:55,975 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:08:56,009 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:08:56,525 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:08:56,525 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:08:56,525 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:08:56,525 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:08:56,525 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:08:56,757 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:08:56,759 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:08:56,760 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:08:56,761 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:08:56,762 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:08:57,385 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:08:57,385 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:08:57,514 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:08:57,517 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:08:58,707 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:08:58,707 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:08:58,707 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:08:58,723 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:08:58,724 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:08:58,724 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:08:58,724 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:08:58,724 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:08:58,724 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:08:58,741 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:08:58,757 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:08:58,757 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:08:58,757 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:08:58,757 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:08:58,757 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:08:58,764 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:08:58,764 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:08:58,764 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:08:58,765 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:08:58,793 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:08:58,809 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:08:59,499 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:08:59,517 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:08:59,521 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:10:22,908 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:10:23,157 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:10:23,173 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:10:23,477 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:10:26,604 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:10:26,605 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:10:26,606 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:10:26,607 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:10:26,608 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:10:26,609 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:10:26,610 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:10:26,610 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:10:26,611 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:10:26,612 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:10:26,612 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:10:26,613 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:10:26,614 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:10:26,614 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:10:26,785 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:10:26,800 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:10:26,800 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:10:26,800 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:10:26,800 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:10:26,800 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:10:27,503 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:10:27,507 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:10:27,508 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:10:27,509 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:10:27,510 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:10:27,697 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:10:27,700 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:10:27,701 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:10:27,702 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:10:27,702 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:10:28,853 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:10:28,853 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:10:28,921 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:10:28,923 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:10:29,703 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:10:29,703 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:10:29,703 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:10:29,703 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:10:29,703 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:10:29,703 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:10:29,703 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:10:29,703 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:10:29,703 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:10:29,703 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:10:29,745 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:10:29,761 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:10:29,781 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:10:29,791 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:10:29,791 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:10:29,791 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:10:29,791 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:10:29,791 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:10:29,791 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:10:29,791 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:10:29,791 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:10:30,346 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:10:30,365 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:10:30,369 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:11:29,923 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:11:30,039 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:11:30,428 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:11:30,504 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:11:33,546 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:11:33,546 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:11:33,546 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:11:33,546 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:11:33,562 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:11:33,622 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:11:33,622 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:11:33,623 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:11:33,624 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:11:33,624 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:11:33,625 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:11:33,626 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:11:33,627 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:11:33,627 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:11:33,629 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:11:33,629 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:11:33,630 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:11:33,631 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:11:33,632 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:11:34,939 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:11:34,939 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:11:34,939 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:11:34,939 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:11:34,939 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:11:35,072 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:11:35,088 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:11:35,088 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:11:35,088 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:11:35,093 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:11:35,816 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:11:35,823 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:11:36,372 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:11:36,376 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:11:36,883 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:11:36,887 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:11:36,889 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:11:36,890 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:11:36,890 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:11:36,891 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:11:36,891 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:11:36,891 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:11:36,892 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:11:37,338 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:11:37,338 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:11:37,354 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:11:37,355 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:11:37,356 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:11:37,358 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:11:37,358 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:11:37,358 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:11:37,359 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:11:37,359 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:11:37,413 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:11:37,428 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:11:37,726 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:11:37,742 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:11:37,757 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:12:10,054 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:12:10,068 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:12:10,069 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:12:10,070 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:12:10,072 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:12:10,073 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:12:10,715 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:12:10,715 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:12:10,715 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:12:10,715 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:12:10,715 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:12:11,371 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:12:11,371 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:12:12,019 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:12:12,019 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:12:12,019 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:12:12,019 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:12:12,019 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:12:12,019 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:12:12,019 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:12:12,019 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:12:12,019 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:12:12,019 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:12:12,056 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.43.192:5000
+2026-07-15 08:12:12,057 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2026-07-15 08:12:12,059 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:12:14,694 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:12:14] "GET / HTTP/1.1" 200 -
+2026-07-15 08:12:15,089 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:12:15,090 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:12:15,091 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:12:15,092 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:12:15,093 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:12:15,094 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:12:15,095 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:12:15,096 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:12:15,097 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:12:15,098 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:12:15,101 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:12:15,104 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:12:15,106 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:12:15,108 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:12:16,088 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:12:16,088 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:12:16,088 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:12:16,088 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:12:16,088 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:12:16,790 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:12:16,790 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:12:17,719 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:12:17,723 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:12:17,724 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:12:17,725 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:12:17,726 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:12:17,727 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:12:17,727 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:12:17,728 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:12:17,729 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:12:17,730 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:12:17,755 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:12:17,755 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:12:19,377 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:12:19] "GET /law HTTP/1.1" 200 -
+2026-07-15 08:12:43,844 - app.services.audio_service - INFO - Successfully processed audio: C:\Users\ALDRIN~1\AppData\Local\Temp\tmp86nluv27.wav
+2026-07-15 08:12:56,786 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-15 08:12:58,570 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:12:58] "POST /ask HTTP/1.1" 200 -
+2026-07-15 08:13:09,836 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/audio/speech "HTTP/1.1 200 OK"
+2026-07-15 08:13:20,337 - werkzeug - INFO - 127.0.0.1 - - [15/Jul/2026 08:13:20] "POST /speak HTTP/1.1" 200 -
+2026-07-15 08:20:37,799 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\services\\case_archive_service.py', reloading
+2026-07-15 08:20:38,163 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\services\\case_archive_service.py', reloading
+2026-07-15 08:20:38,601 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:20:39,135 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:20:44,180 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:20:44,180 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:20:44,180 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:20:44,180 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:20:44,202 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:20:44,205 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:20:44,208 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:20:44,210 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:20:44,211 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:20:44,212 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:20:44,214 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:20:44,219 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:20:44,220 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:20:44,221 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:20:44,663 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:20:44,680 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:20:45,364 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:20:45,364 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:20:45,364 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:20:45,364 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:20:45,364 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:20:45,663 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:20:45,663 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:20:45,663 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:20:45,663 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:20:45,663 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:20:46,347 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:46,347 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:20:46,597 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:46,597 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:20:47,213 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:47,213 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:20:47,213 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:20:47,213 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:20:47,213 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:20:47,213 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:20:47,222 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:20:47,222 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:20:47,223 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:20:47,223 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:20:47,247 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:20:47,247 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:20:47,463 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:47,480 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:20:47,480 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:20:47,480 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:20:47,480 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:20:47,480 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:20:47,480 - app.services.pdf_service - INFO - Loaded 21/24 legal documents
+2026-07-15 08:20:47,480 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:20:47,480 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:20:48,097 - root - INFO - Loaded 21 legal documents
+2026-07-15 08:20:48,114 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:20:48,130 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:20:48,488 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\services\\pdf_service.py', reloading
+2026-07-15 08:20:48,880 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:20:48,897 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\services\\pdf_service.py', reloading
+2026-07-15 08:20:49,347 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:20:53,880 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:20:54,130 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:20:55,063 - app.services.pdf_service - INFO - Successfully loaded: Military Discipline Bill B21 of 2019
+2026-07-15 08:20:55,218 - app.services.pdf_service - INFO - Successfully loaded: Military Discipline Bill B21 of 2019
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Successfully loaded: Military Discipline Supplementary Measures Bill B31 of 1999
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:20:56,216 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:20:56,230 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:20:56,230 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Successfully loaded: Military Discipline Supplementary Measures Bill B31 of 1999
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:20:56,331 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:20:57,196 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:20:57,196 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:20:57,196 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:20:57,196 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:20:57,196 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:20:57,297 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:20:57,297 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:20:57,297 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:20:57,297 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:20:57,297 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:20:58,380 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:58,380 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:20:58,513 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:58,513 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:20:59,330 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:59,330 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:20:59,330 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:20:59,330 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:20:59,330 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:20:59,330 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:20:59,330 - app.services.pdf_service - INFO - Loaded 23/26 legal documents
+2026-07-15 08:20:59,330 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:20:59,330 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:20:59,447 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:20:59,447 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:20:59,447 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:20:59,447 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:20:59,447 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:20:59,454 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:20:59,454 - app.services.pdf_service - INFO - Loaded 23/26 legal documents
+2026-07-15 08:20:59,455 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:20:59,455 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:20:59,455 - root - INFO - Loaded 23 legal documents
+2026-07-15 08:20:59,480 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:20:59,480 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:20:59,980 - root - INFO - Loaded 23 legal documents
+2026-07-15 08:21:00,013 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:21:00,013 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:21:01,046 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:21:01,431 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:21:01,714 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Aldrin-PC\\Desktop\\Studies\\2025\\Python Development\\military-law-assistant\\app\\routes.py', reloading
+2026-07-15 08:21:02,280 - werkzeug - INFO -  * Restarting with stat
+2026-07-15 08:21:05,763 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:21:05,780 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:21:05,780 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:21:05,780 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:21:05,780 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:21:05,785 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:21:05,786 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:21:05,787 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Bill B21 of 2019
+2026-07-15 08:21:05,787 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Supplementary Measures Bill B31 of 1999
+2026-07-15 08:21:05,788 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:21:05,789 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:21:05,790 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:21:05,791 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:21:05,792 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:21:05,793 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:21:05,794 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Bill B21 of 2019
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Supplementary Measures Bill B31 of 1999
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:21:06,347 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:21:06,363 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:21:06,363 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:21:06,363 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:21:06,363 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:21:06,363 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:21:06,713 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:21:06,730 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:21:06,730 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:21:06,735 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:21:06,736 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:21:07,263 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:21:07,263 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:21:07,263 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:21:07,263 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:21:07,263 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:21:07,630 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:21:07,647 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:21:08,146 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:21:08,146 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:21:08,546 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:21:08,546 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:21:08,546 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:21:08,546 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:21:08,546 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:21:08,562 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:21:08,563 - app.services.pdf_service - INFO - Loaded 23/26 legal documents
+2026-07-15 08:21:08,563 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:21:08,563 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:21:08,563 - root - INFO - Loaded 23 legal documents
+2026-07-15 08:21:08,613 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:21:08,613 - werkzeug - INFO -  * Debugger PIN: 951-887-155
+2026-07-15 08:21:09,070 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:21:09,075 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:21:09,076 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:21:09,076 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:21:09,077 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:21:09,078 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:21:09,078 - app.services.pdf_service - INFO - Loaded 23/26 legal documents
+2026-07-15 08:21:09,078 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:21:09,078 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:21:09,817 - root - INFO - Loaded 23 legal documents
+2026-07-15 08:21:09,847 - werkzeug - WARNING -  * Debugger is active!
+2026-07-15 08:21:09,848 - werkzeug - INFO -  * Debugger PIN: 767-980-048
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Constitution of South Africa, 1996
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Procedure Act 51 of 1977
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Sexual Offences and Related Matters) Amendment Act 32 of 2007
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Domestic Violence Act 116 of 1998
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention of Organised Crime Act 121 of 1998
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: South African Police Service Act 68 of 1995
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Defence Act 42 of 2002
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Bill B21 of 2019
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Military Discipline Supplementary Measures Bill B31 of 1999
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Intelligence Services Act 65 of 2002
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Criminal Law (Forensic Procedures) Amendment Act 6 of 2010
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Protected Disclosures Act 26 of 2000
+2026-07-15 08:22:07,595 - app.services.pdf_service - INFO - Using existing valid PDF: Prevention and Combating of Corrupt Activities Act 12 of 2004
+2026-07-15 08:22:07,612 - app.services.pdf_service - INFO - Using existing valid PDF: Cybercrimes Act 19 of 2020
+2026-07-15 08:22:07,612 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications and Transactions Act 25 of 2002
+2026-07-15 08:22:07,612 - app.services.pdf_service - INFO - Using existing valid PDF: Regulation of Interception of Communications Act 70 of 2002
+2026-07-15 08:22:08,512 - app.services.pdf_service - WARNING - Skipping Protection of Personal Information Act 4 of 2013: HTTP 404 (permanent error)
+2026-07-15 08:22:08,512 - app.services.pdf_service - ERROR - Failed to load: Protection of Personal Information Act 4 of 2013
+2026-07-15 08:22:08,512 - app.services.pdf_service - INFO - Using existing valid PDF: Electronic Communications Act 36 of 2005
+2026-07-15 08:22:08,512 - app.services.pdf_service - INFO - Using existing valid PDF: Financial Intelligence Centre Act 38 of 2001
+2026-07-15 08:22:08,512 - app.services.pdf_service - INFO - Using existing valid PDF: National Credit Act 34 of 2005
+2026-07-15 08:22:09,913 - app.services.pdf_service - WARNING - Skipping Consumer Protection Act 68 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:22:09,930 - app.services.pdf_service - ERROR - Failed to load: Consumer Protection Act 68 of 2008
+2026-07-15 08:22:11,279 - app.services.pdf_service - WARNING - Skipping Companies Act 71 of 2008: HTTP 404 (permanent error)
+2026-07-15 08:22:11,279 - app.services.pdf_service - ERROR - Failed to load: Companies Act 71 of 2008
+2026-07-15 08:22:11,279 - app.services.pdf_service - INFO - Using existing valid PDF: Labour Relations Act 66 of 1995
+2026-07-15 08:22:11,279 - app.services.pdf_service - INFO - Using existing valid PDF: Employment Equity Act 55 of 1998
+2026-07-15 08:22:11,279 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Act 65 of 1996
+2026-07-15 08:22:11,279 - app.services.pdf_service - INFO - Using existing valid PDF: Films and Publications Amendment Act 3 of 2009
+2026-07-15 08:22:11,279 - app.services.pdf_service - INFO - Loaded 23/26 legal documents
+2026-07-15 08:22:11,279 - app.services.pdf_service - WARNING - Missing documents: Protection of Personal Information Act 4 of 2013, Consumer Protection Act 68 of 2008, Companies Act 71 of 2008
+2026-07-15 08:22:11,279 - app.services.audio_service - INFO - AudioService initialized with sample_rate=16000, max_duration=300
+2026-07-15 08:22:11,279 - root - INFO - Loaded 23 legal documents
