@@ -54,6 +54,10 @@ class Config:
     @property
     def TTS_RESPONSE_FORMAT(self):
         return os.getenv('TTS_RESPONSE_FORMAT', 'mp3')
+
+    @property
+    def EXPRESS_API_BASE_URL(self):
+        return os.getenv('EXPRESS_API_BASE_URL', 'http://localhost:4000/api')
     
     @property
     def SYSTEM_PROMPT(self):

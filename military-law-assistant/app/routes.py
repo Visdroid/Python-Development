@@ -167,7 +167,8 @@ def init_routes(app):
             case_sources=current_app.case_archive_service.get_sources(),
             operational_resources=build_operational_resources(),
             premium_tts_voices=current_app.ai_service.get_tts_voice_options(),
-            default_tts_voice=current_app.ai_service.tts_voice
+            default_tts_voice=current_app.ai_service.tts_voice,
+            express_api_base_url=current_app.config.get('EXPRESS_API_BASE_URL')
         )
 
     @app.route('/documents/<path:file_name>')
